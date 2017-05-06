@@ -70,7 +70,7 @@ int main(int argc, char **argv)
 		               char* file_name = "/Users/LuisSFU/Desktop/Mission7/foo.c";
 		               FILE *file = fopen(file_name, "a");
 		               if(file == NULL){
-			             printf("File %s Cannot be opened file on server.\n", file_name);
+			             printf("File %s Cannot be opened file.\n", file_name);
                     }else{
 			                bzero(buffer, LENGTH);
                     }
@@ -78,11 +78,11 @@ int main(int argc, char **argv)
                   int writeSize;
 			            while((blockSize = recv(server_socket, buffer, LENGTH, 0))){
 			                 if(blockSize < 0){
-			                   printf("Error receiving file from client to server.\n");
+			                   printf("Error receiving file.\n");
 			                 }
 			                   writeSize = fwrite(buffer, sizeof(char), blockSize, file);
 			                   if(writeSize < blockSize){
-			                       printf("File write failed on server.\n");
+			                       printf("File write failed.\n");
                            }else if(blockSize){
 						                    break;
                               }
